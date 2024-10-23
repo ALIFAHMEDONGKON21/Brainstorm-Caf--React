@@ -22,7 +22,7 @@ import Blog from "../Blog/Blog";
                 blogs.map(blog => <Blog key={blog.id} 
                     blog={blog}
                     handlemark={handlemark}
-                    handlemarkread={handlemarkread}
+                    handlemarkread={handlemarkread }
                 ></Blog>
                 )
             }

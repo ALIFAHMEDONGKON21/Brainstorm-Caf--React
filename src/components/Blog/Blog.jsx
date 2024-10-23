@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types'; // ES6
 
 
-const Blog = ({blog , handlemark ,handlemarkread}) => {
-    console.log(blog)
+const Blog = ({ blog , handlemark ,handlemarkread}) => {
+    
 
-    const{title ,cover,author_img,reading_time,author,
+    const{title ,id,cover,author_img,reading_time,author,
         posted_date,hashtag}=blog
     return (
         <div className='py-10'>
@@ -26,7 +26,7 @@ const Blog = ({blog , handlemark ,handlemarkread}) => {
             </div>
             <p>{hashtag}</p>
 
-            <p onClick={()=>handlemarkread(reading_time)} className='text-blue-600 underline'>Mark As Read</p>
+            <p onClick={()=>handlemarkread(reading_time ,id)} className='text-blue-600 underline'>Mark As Read</p>
            
         </div>
     );
@@ -35,7 +35,8 @@ const Blog = ({blog , handlemark ,handlemarkread}) => {
 Blog.propTypes={
     blog:PropTypes.object.isRequired,
     handlemark:PropTypes.func,
-    handlemarkread:PropTypes.number
+    handlemarkread:PropTypes.number,
+    id:PropTypes.number
 
 }
 

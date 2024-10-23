@@ -3,6 +3,7 @@ import './App.css'
 import Blogs from './components/Blogs/Blogs'
 import Bookmarks from './components/Bookmarks/Bookmarks'
 import Header from './components/heeder/header'
+
 function App() {
 
   const [bookmarks ,setbookmarks]=useState([]);
@@ -10,13 +11,21 @@ function App() {
   const [readingtime ,setreadingtime]=useState(0)
 
 
-  const handlemarkread= time=>{
-    console.log('click mark read',time)
-
+  const handlemarkread=(time,id)=>{
+    
+   
     const convertingtime=parseInt(time)
 
     const newreading= parseInt(readingtime+convertingtime) 
     setreadingtime(newreading)
+
+
+    //removing tittle 
+    console.log( 'removeing id',id)
+    
+    const remaningbookmars=bookmarks.filter(bookmark => bookmark.id !== id)
+    setbookmarks(remaningbookmars);
+
   }
 
 
