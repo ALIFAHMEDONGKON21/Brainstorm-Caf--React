@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'; // ES6
 
 
-const Blog = ({blog , handlemark}) => {
+const Blog = ({blog , handlemark ,handlemarkread}) => {
     console.log(blog)
 
     const{title ,cover,author_img,reading_time,author,
@@ -19,12 +19,14 @@ const Blog = ({blog , handlemark}) => {
                 </div>
                 </div>
                 <div className='flex flex-row '> <p className='text-gray-500'>Reading time : {reading_time}</p>
-                <img onClick={handlemark} className='ml-2' width="30" height="30" src="https://img.icons8.com/nolan/64/bookmark.png" alt="bookmark"/>
+                <img onClick={()=>handlemark(blog)} className='ml-2' width="30" height="30" src="https://img.icons8.com/nolan/64/bookmark.png" alt="bookmark"/>
                 </div>
 
                
             </div>
             <p>{hashtag}</p>
+
+            <p onClick={()=>handlemarkread(reading_time)} className='text-blue-600 underline'>Mark As Read</p>
            
         </div>
     );
@@ -32,7 +34,8 @@ const Blog = ({blog , handlemark}) => {
 
 Blog.propTypes={
     blog:PropTypes.object.isRequired,
-    handlemark:PropTypes.func
+    handlemark:PropTypes.func,
+    handlemarkread:PropTypes.number
 
 }
 

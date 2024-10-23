@@ -5,7 +5,7 @@ import Blog from "../Blog/Blog";
 
 
   
-    const Blogs = ( {handlemark}) => {
+    const Blogs = ( {handlemark ,handlemarkread}) => {
    const [blogs,setblogs]=useState([])
 
    useEffect(()=>{
@@ -22,6 +22,7 @@ import Blog from "../Blog/Blog";
                 blogs.map(blog => <Blog key={blog.id} 
                     blog={blog}
                     handlemark={handlemark}
+                    handlemarkread={handlemarkread}
                 ></Blog>
                 )
             }
@@ -32,6 +33,7 @@ import Blog from "../Blog/Blog";
 
 Blogs.propTypes=
 {
-    handlemark:PropTypes.func
+    handlemark:PropTypes.func,
+    handlemarkread:PropTypes.number
 }
 export default Blogs;
